@@ -95,7 +95,7 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubsCribe;
-  }, []);
+  }, [auth]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/users/${user.email}`)

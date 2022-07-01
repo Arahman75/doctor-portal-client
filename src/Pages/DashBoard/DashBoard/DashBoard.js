@@ -16,13 +16,12 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Button, Grid } from '@mui/material';
+import { Button } from '@mui/material';
 import {
-  BrowserRouter as Router,
+  BrowserRouter as 
   Switch,
   Route,
-  Link,
-  useParams,
+ 
   useRouteMatch
 } from "react-router-dom";
 import DashboardHome from '../DashboardHome/DashboardHome';
@@ -30,6 +29,7 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddDoctor from '../AddDoctor/AddDoctor';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import Payment from '../Payment/Payment';
 
 
 const drawerWidth = 200;
@@ -145,6 +145,9 @@ function ResponsiveDrawer(props) {
         <Route exact path={path}>
          <DashboardHome></DashboardHome>
         </Route>
+        <Route  path={`${path}/payment/:appointmentId`}>
+<Payment></Payment>
+        </Route>
         <AdminRoute path={`${path}/makeAdmin`}>
          <MakeAdmin></MakeAdmin>
         </AdminRoute>
@@ -152,12 +155,7 @@ function ResponsiveDrawer(props) {
        <AddDoctor></AddDoctor>
         </AdminRoute>
       </Switch>
-
-
-
-
-
-      </Box>
+</Box>
     </Box>
   );
 }

@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from '@mui/material';
-import { Box, Container, fontWeight } from '@mui/system';
+import { Box, Container } from '@mui/system';
 import React from 'react';
 import footer from '../../../../images/footer.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

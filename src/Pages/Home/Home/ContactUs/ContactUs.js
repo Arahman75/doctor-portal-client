@@ -1,4 +1,4 @@
-import { Button, Grid, TextareaAutosize, Typography } from '@mui/material';
+import { Button,  TextareaAutosize, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import React from 'react';
 import bg from '../../../../images/appointment.png';

@@ -10,27 +10,27 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const Appointments = ({ date }) => {
-  const { user, token } = useAuth();
+  const { user } = useAuth();
   const [Appointments, setAppointments] = useState([]);
-//do not work code this is on
-
-  // useEffect(() => {
-  //   const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(data => setAppointments(data))
-  // }, [date])
+  //do not work code this is on
 
   useEffect(() => {
     const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
-    fetch(url,{
-      headers:{
-        'authorization' : `Bearer ${token}`
-      }
-    })
+    fetch(url)
       .then(res => res.json())
       .then(data => setAppointments(data))
-  }, [date])
+  }, [date, user.email])
+
+  // useEffect(() => {
+  //   const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
+  //   fetch(url,{
+  //     headers:{
+  //       'authorization' : `Bearer ${token}`
+  //     }
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => setAppointments(data))
+  // }, [date, user.email,token])
   return (
     <div>
       <h2>Appointments:{Appointments.length}</h2>
@@ -41,7 +41,7 @@ const Appointments = ({ date }) => {
               <TableCell>Name</TableCell>
               <TableCell align="right">Time</TableCell>
               <TableCell align="right">Service</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell align="right">Payment</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -55,7 +55,9 @@ const Appointments = ({ date }) => {
                 </TableCell>
                 <TableCell align="right">{row.time}</TableCell>
                 <TableCell align="right">{row.serviceName}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
+                <TableCell align="right">{row.payment ? 'Paid' :
+                <a href={`/dashboard/payment/${row._id}`}><button>Pay</button></a>
+                }</TableCell>
 
               </TableRow>
             ))}

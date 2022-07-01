@@ -1,5 +1,5 @@
-import { Card, CardContent, CardMedia, Grid, Paper, Typography } from '@mui/material';
-import { Box, padding } from '@mui/system';
+import { CardMedia, Grid, Paper, Typography } from '@mui/material';
+import { Box} from '@mui/system';
 import React from 'react';
 
 const Testimonial = ({ testimonial }) => {
