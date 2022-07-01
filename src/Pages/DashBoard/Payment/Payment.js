@@ -40,6 +40,10 @@ export default Payment;
 4.CheckoutForm
 --------
 5.Create payment method
+6.server create payment Intent api
+7.load client secret
+8.confirm card payment
+9.handle user error
 
 
 */
