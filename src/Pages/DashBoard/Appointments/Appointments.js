@@ -10,27 +10,27 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const Appointments = ({ date }) => {
-  const { user } = useAuth();
+  const { user,token } = useAuth();
   const [Appointments, setAppointments] = useState([]);
   //do not work code this is on
 
-  useEffect(() => {
-    const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setAppointments(data))
-  }, [date, user.email])
-
   // useEffect(() => {
   //   const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
-  //   fetch(url,{
-  //     headers:{
-  //       'authorization' : `Bearer ${token}`
-  //     }
-  //   })
+  //   fetch(url)
   //     .then(res => res.json())
   //     .then(data => setAppointments(data))
-  // }, [date, user.email,token])
+  // }, [date, user.email])
+
+  useEffect(() => {
+    const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
+    fetch(url,{
+      headers:{
+        'authorization' : `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => setAppointments(data))
+  }, [date, user.email,token])
   return (
     <div>
       <h2>Appointments:{Appointments.length}</h2>

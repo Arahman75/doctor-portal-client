@@ -3,7 +3,7 @@ import React from 'react';
 const AddDoctor = () => {
     return (
         <div>
-            <h3>Add a Doctor</h3>
+           <h2>Add a doctor</h2>
         </div>
     );
 };

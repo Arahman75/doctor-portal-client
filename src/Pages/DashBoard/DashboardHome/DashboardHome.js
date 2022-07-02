@@ -17,8 +17,9 @@ const DashboardHome = () => {
         </Grid>
         <Grid item xs={12} sm={7} >
           <Appointments date={date}></Appointments>
+          </Grid>
         </Grid>
-        </Grid>
+        
     );
 };
 
